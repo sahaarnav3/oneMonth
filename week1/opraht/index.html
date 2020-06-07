@@ -18,12 +18,22 @@
 		}
 	</style>
 	<script>
-		alert("What Your Name Bruh ?!");
+		/* this is an event
+		alert("What Your Name Bruh ?!"); */
+		let username = "";
+		let car = ["BMW" , "Audi" , "Maserati"];
+		username = prompt("Hello, who are you ?");
+		if (username == "Arnav" || username == "arnav"){
+			document.write("<h1>Hello " + username + " You Won A " + car + "..!</h1>");
+		}
+		else {
+			document.write("<h1>Hello " + username + " !</h1>");
+		}
 	</script>
 </head>
 
 <body>
-	<h1>Hello User!</h1>
+	<!-- <h1>Hello User!</h1> -->
 </body>
 
 </html>
