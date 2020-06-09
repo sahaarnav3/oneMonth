@@ -1,1 +1,6 @@
 optimizely.com
+
+.getElementsByClassName("class"); -- use .class for docQuerySelecto
+.getElementById("id"); -- use #id for docQuerySelector.
+
+
