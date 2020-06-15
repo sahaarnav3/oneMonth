@@ -1,12 +1,10 @@
 document.querySelector(".js-go").addEventListener('click', function(e){
     let input = document.querySelector("input").value;
-    console.log(input);
     pushToDom(input);
 });
 
 document.querySelector(".js-userinput").addEventListener('keyup', function(e) {
     let input = document.querySelector("input").value;
-    console.log(input);
     if ( e.which === 13 ){
         pushToDom(input);
     }
@@ -22,7 +20,7 @@ GiphyAJAXcall.send();
 
 GiphyAJAXcall.addEventListener('load', function(e) {
     let data = e.target.response;
-    console.log(data);
+    pushToDom(data);
 });
 
 
@@ -33,6 +31,17 @@ GiphyAJAXcall.addEventListener('load', function(e) {
 
 function pushToDom(input){
     
-    var container = document.querySelector(".js-container");
-    container.innerHTML = input;
+    let response = JSON.parse(input);
+    /* console.log(response.data[0].images.fixed_height.url);
+    let image = response.data[0].images.fixed_height.url; */
+
+    for (let i = 0; i < response.data.length; i++){
+        let imageURL = response.data[i].images.fixed_height.url;
+        console.log(response.data[i].images.fixed_height.url);
+        let container = document.querySelector(".js-container");
+        container.innerHTML = "<img src=\""+imageURL+"\">";
+    }
+
+    
+
 }
