@@ -28,20 +28,31 @@ GiphyAJAXcall.addEventListener('load', function(e) {
 
 
 
-
+/* 
 function pushToDom(input){
     
     let response = JSON.parse(input);
-    /* console.log(response.data[0].images.fixed_height.url);
-    let image = response.data[0].images.fixed_height.url; */
+    // console.log(response.data[0].images.fixed_height.url);
+   // let image = response.data[0].images.fixed_height.url; 
 
     for (let i = 0; i < response.data.length; i++){
         let imageURL = response.data[i].images.fixed_height.url;
         console.log(response.data[i].images.fixed_height.url);
         let container = document.querySelector(".js-container");
-        container.innerHTML = "<img src=\""+imageURL+"\">";
+        container.innerHTML += "<img src=\""+imageURL+"\">";
     }
+}*/
 
-    
+function pushToDom(input) {
+    let response = JSON.parse(input);
+    let imageURLs = response.data;
+    imageURLs.forEach(function(image) { 
+        let image1 = image.images.fixed_height.url;
+        console.log(image1);
+        let box = document.createElement('img');
+        box.src = image.images.fixed_height.url;
+        box.className = 'container-image' 
+        document.querySelector(".js-container").appendChild(box);
+    });
 
 }
