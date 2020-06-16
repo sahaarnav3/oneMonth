@@ -1,19 +1,36 @@
+let url = "";
+let input = "";
+
 document.querySelector(".js-go").addEventListener('click', function(e){
-    let input = document.querySelector("input").value;
-    pushToDom(input);
+    urlCreate(input);
+    input = "";
 });
 
 document.querySelector(".js-userinput").addEventListener('keyup', function(e) {
-    let input = document.querySelector("input").value;
-    if ( e.which === 13 ){
-        pushToDom(input);
+    if (e.which === 32){
+         input += "+" ;    
     }
+     else if(e.which >= 65 && e.which <= 90 ) {
+     input += e.key;
+    } 
+    else if ( e.which === 13 ){
+        urlCreate(input);
+        input = "";
+    }
+    console.log(input);
 });
 
 //api link with key -- http://api.giphy.com/v1/gifs/search?q=cat&api_key=PscMUKBhvUny302aOXQ2x5xTWIJZrt7E
-let url = "http://api.giphy.com/v1/gifs/search?q=cat&api_key=PscMUKBhvUny302aOXQ2x5xTWIJZrt7E";
+//let url = "http://api.giphy.com/v1/gifs/search?q=cat&api_key=PscMUKBhvUny302aOXQ2x5xTWIJZrt7E";
+
+function urlCreate(input) {
+    url = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=PscMUKBhvUny302aOXQ2x5xTWIJZrt7E";
+    console.log(url);
+    AJAX(url);
+}
 
 // AJAX request
+function AJAX(url) {
 let GiphyAJAXcall = new XMLHttpRequest();
 GiphyAJAXcall.open('GET', url);
 GiphyAJAXcall.send();
@@ -22,11 +39,7 @@ GiphyAJAXcall.addEventListener('load', function(e) {
     let data = e.target.response;
     pushToDom(data);
 });
-
-
-
-
-
+}
 
 /* 
 function pushToDom(input){
@@ -48,11 +61,10 @@ function pushToDom(input) {
     let imageURLs = response.data;
     imageURLs.forEach(function(image) { 
         let image1 = image.images.fixed_height.url;
-        console.log(image1);
+        // console.log(image1);
         let box = document.createElement('img');
         box.src = image.images.fixed_height.url;
         box.className = 'container-image' 
         document.querySelector(".js-container").appendChild(box);
     });
-
 }
