@@ -4,6 +4,10 @@ body {
 	margin: 0 auto;
 }
 
+input:focus, textarea:focus{
+	border-color: yellow;
+}
+
 .container-padding50 {
 	padding-top: 50px;
 }

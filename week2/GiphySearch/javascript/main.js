@@ -4,6 +4,7 @@ let input = "";
 document.querySelector(".js-go").addEventListener('click', function(e){
     urlCreate(input);
     input = "";
+    document.querySelector(".js-container").textContent = ' ';
 });
 
 document.querySelector(".js-userinput").addEventListener('keyup', function(e) {
@@ -14,6 +15,7 @@ document.querySelector(".js-userinput").addEventListener('keyup', function(e) {
      input += e.key;
     } 
     else if ( e.which === 13 ){
+        document.querySelector(".js-container").textContent = ' ';
         urlCreate(input);
         input = "";
     }
@@ -64,7 +66,7 @@ function pushToDom(input) {
         // console.log(image1);
         let box = document.createElement('img');
         box.src = image.images.fixed_height.url;
-        box.className = 'container-image' 
+        box.className = 'container-image';
         document.querySelector(".js-container").appendChild(box);
     });
 }
