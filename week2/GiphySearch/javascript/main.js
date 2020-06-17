@@ -62,11 +62,11 @@ function pushToDom(input) {
     let response = JSON.parse(input);
     let imageURLs = response.data;
     imageURLs.forEach(function(image) { 
-        let image1 = image.images.fixed_height.url;
-        // console.log(image1);
+
         let box = document.createElement('img');
         box.src = image.images.fixed_height.url;
-        box.className = 'container-image';
+        box.classList.add("container-image");
+        // classList.toggle -- if class present will remove it and vice-versa.
         document.querySelector(".js-container").appendChild(box);
     });
 }

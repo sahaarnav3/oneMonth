@@ -23,6 +23,20 @@ SoundCloudAPI.getTrack = function(inputValue) {
 }
 SoundCloudAPI.getTrack("Rilo Kiley");
 
+SoundCloudAPI.renderTracks = function() {
+
+  let card = document.createElement('div');
+  card.classList.add("card");
+  document.querySelector(".js-search-results").appendChild(card);
+  let image = document.createElement('div');
+  image.classList.add("image");
+  document.querySelector("").appendChild(image);
+
+
+}
+
+SoundCloudAPI.renderTracks();
+
 
 
 /* 3. Display the cards */
