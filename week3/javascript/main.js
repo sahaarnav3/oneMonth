@@ -2,7 +2,7 @@
 
 
 
-/* 2. Query Soundcloud API*/
+/* 2. Query Soundcloud API && Displaying the cards */
 var SoundCloudAPI = {};
 
 SoundCloudAPI.init = function() {
@@ -32,7 +32,6 @@ SoundCloudAPI.renderTracks = function(track) {
 
   }); */
 
-  console.log(track);
   let card = document.createElement('div');
   card.classList.add("card");
 
@@ -66,22 +65,33 @@ SoundCloudAPI.renderTracks = function(track) {
   button.appendChild(icon);
   button.appendChild(buttonText);
 
+  button.addEventListener('click', function() {
+    SoundCloudAPI.getEmbed(track.permalink_url);
+  });
+
   card.appendChild(imageDiv);
   card.appendChild(content);
   card.appendChild(button);
 
  document.querySelector('.js-search-results').appendChild(card); 
-  
 }
 
-SoundCloudAPI.renderTracks();
+// Adding to the playlist and playing the song.
 
+SoundCloudAPI.getEmbed = function(trackURL) {
+console.log(trackURL);
+SC.oEmbed(trackURL, { 
+  auto_play: true
+}).then(function(embed){
+  console.log('oEmbed response: ', embed);
 
-
-/* 3. Display the cards */
-
-
-
-/* 4. Add to playlist and play. */
-
+  let sideBar =  document.querySelector(".js-playlist");
+  let box = document.createElement('div');
+  box.innerHTML = embed.html;
+  // sideBar.appendChild(box);
+  sideBar.insertBefore(box, sideBar.firstChild);
+  localStorage.setItem("key", value)
+});
+}
 //console.log(`This is the car ${car}`);
+
