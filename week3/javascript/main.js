@@ -6,7 +6,6 @@ let inpu = document.querySelector(".input-search").value;
    let inpu = document.querySelector(".input-search").value;
     console.log(inpu);
     SoundCloudAPI.getTrack(inpu);
-    input = "";
     document.querySelector(".js-search-results").textContent = ' ';
 });
   document.querySelector(".input-search").addEventListener('keyup', function(e){
@@ -15,7 +14,6 @@ let inpu = document.querySelector(".input-search").value;
         let inpu = document.querySelector(".input-search").value;
         console.log(inpu);
           SoundCloudAPI.getTrack(inpu);
-          //input = "";
           document.querySelector(".js-search-results").textContent = ' ';
       }
       let inpu = document.querySelector(".input-search").value;

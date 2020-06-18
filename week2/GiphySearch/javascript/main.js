@@ -1,25 +1,22 @@
-let url = "";
-let input = "";
+//let input = "";
+let input = document.querySelector(".js-userinput").value;
 
 document.querySelector(".js-go").addEventListener('click', function(e){
+    let input = document.querySelector(".js-userinput").value;
     console.log(input);
     urlCreate(input);
-    input = ""; 
     document.querySelector(".js-container").textContent = ' ';
 });
 
 document.querySelector(".js-userinput").addEventListener('keyup', function(e){
-    if (e.which === 32){
-         input += "+" ;    
-    }
-     else if(e.which >= 65 && e.which <= 90 ) {
-     input += e.key;
-    } 
-    else if ( e.which === 13 ){
-        document.querySelector(".js-container").textContent = ' ';
+    
+    if ( e.which === 13 ){
+        let input = document.querySelector(".js-userinput").value;
+        console.log(input);
         urlCreate(input);
-        input = "";
+        document.querySelector(".js-container").textContent = ' ';
     }
+    let input = document.querySelector(".js-userinput").value;
     console.log(input);
 });
 
