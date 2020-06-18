@@ -2,12 +2,13 @@ let url = "";
 let input = "";
 
 document.querySelector(".js-go").addEventListener('click', function(e){
+    console.log(input);
     urlCreate(input);
-    input = "";
+    input = ""; 
     document.querySelector(".js-container").textContent = ' ';
 });
 
-document.querySelector(".js-userinput").addEventListener('keyup', function(e) {
+document.querySelector(".js-userinput").addEventListener('keyup', function(e){
     if (e.which === 32){
          input += "+" ;    
     }
