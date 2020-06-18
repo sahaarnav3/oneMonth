@@ -120,3 +120,10 @@ SoundCloudAPI.getEmbed = function(trackURL) {
 
 let sideBar =  document.querySelector(".js-playlist");
 sideBar.innerHTML = localStorage.getItem("key");
+console.log(sideBar);
+
+// when reset button is pressed playist is deleted and page is refreshed.
+document.querySelector(".reset-button").addEventListener('click', function() {
+  localStorage.clear();
+  location.reload();
+});
