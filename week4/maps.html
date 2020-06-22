@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Map Method</title>
+
+    <style>
+
+        body {
+            background: #87cefa;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <script type="text/javascript">
+        // FOR EACH - loops through data, exceutes once per array element
+        //cities example
+        let cities = ["Varanasi", "Delhi", "Bhubaneshwar"];
+        cities.forEach(function(city) {
+            console.log(city);
+        });
+        let people = [{name:"Arnav", location:"varanasi"}, {name:"Mattan", location:"Goo"}];
+        people.forEach(function(peep) {
+            console.log(peep.name);
+        });
+
+        //MAP - loops through data, creates a new array 
+        var numbers = [1,4,9];
+        var doubles = numbers.map(function(num){
+            return num * 2;
+        });
+        console.log(doubles);
+
+        //people with map this time
+        let people1 = people.map(function(peep){
+            return peep.name;
+        });
+        console.log(people1);
+
+    </script>
+</body>
+</html>
+
+<!-- map is a lot like forEach() function -->

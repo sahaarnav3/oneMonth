@@ -3,4 +3,14 @@ optimizely.com
 .getElementsByClassName("class"); -- use .class for docQuerySelecto
 .getElementById("id"); -- use #id for docQuerySelector.
 
+use gitchecout ....(number/version of that commit)....
+git log --oneline   :- to get all the commit history in one line.
+git remote add origin ...(link)...  :- when you want to connect your local repo
+to online git manager (github or bitbucket).
+
+npm install lite-server --save-dev :-- to see the live version of website we're making.
+ --save-dev := denotes that the packages being used are for development.
+
+
+
 
