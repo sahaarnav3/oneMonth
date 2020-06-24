@@ -11,8 +11,8 @@
     </style>
 </head>
 <body>
-    <h1>SITE NAME</h1>
-    <p>Description of the site</p>
+    <h1 class="header">SITE NAME</h1>
+    <p class="bodytext">Description of the site</p>
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
     <script type="text/javascript"> 
@@ -22,11 +22,16 @@
                             callback: showInfo,
                             simpleSheet: true } )
         }
+
+        let header = document.querySelector('.header');
+        let bodytext = document.querySelector('.bodytext');
         function showInfo(data, tabletop) {
             /* alert('Successfully processed!')
             console.log(data); */
             data.forEach(function(data) {
-                document.write(data.NAME);
+                console.log(data.NAME);
+                header.innerHTML = data.NAME;
+                bodytext.innerHTML = data.CATEGORY;
             });
         }
         window.addEventListener('DOMContentLoaded', init);
